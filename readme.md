@@ -31,6 +31,7 @@ $ make install
 
     -h, --help           output usage information
     -v, --version        output version number
+    -f, --file           give files as input
 
   Usage:
 
