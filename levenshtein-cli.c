@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include "levenshtein.h"
 
-char * filecontents(char *fname) {
+char * 
+filecontents(char *fname) {
 
   char * buffer = 0;
   long length = 0L;
