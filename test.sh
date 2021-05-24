@@ -41,28 +41,28 @@ describe "Execute: more than two arguments"
   assert $? 1
 
 describe "Execute: should work"
-  assert "$(./levenshtein "" "a")" 1
-  assert "$(./levenshtein "a" "")" 1
-  assert "$(./levenshtein "" "")" 0
-  assert "$(./levenshtein "levenshtein" "levenshtein")" 0
-  assert "$(./levenshtein "sitting" "kitten")" 3
-  assert "$(./levenshtein "gumbo" "gambol")" 2
-  assert "$(./levenshtein "saturday" "sunday")" 3
-  assert "$(./levenshtein "DwAyNE" "DUANE")" 2
-  assert "$(./levenshtein "dwayne" "DuAnE")" 5
-  assert "$(./levenshtein "aarrgh" "aargh")" 1
-  assert "$(./levenshtein "aargh" "aarrgh")" 1
-  assert "$(./levenshtein "a" "b")" 1
-  assert "$(./levenshtein "ab" "ac")" 1
-  assert "$(./levenshtein "ac" "bc")" 1
-  assert "$(./levenshtein "abc" "axc")" 1
-  assert "$(./levenshtein "xabxcdxxefxgx" "1ab2cd34ef5g6")" 6
-  assert "$(./levenshtein "xabxcdxxefxgx" "abcdefg")" 6
-  assert "$(./levenshtein "javawasneat" "scalaisgreat")" 7
-  assert "$(./levenshtein "example" "samples")" 3
-  assert "$(./levenshtein "sturgeon" "urgently")" 6
-  assert "$(./levenshtein "levenshtein" "frankenstein")" 6
-  assert "$(./levenshtein "distance" "difference")" 5
+  assert "$(./levenshtein -s "" "a")" 1
+  assert "$(./levenshtein -s "a" "")" 1
+  assert "$(./levenshtein -s "" "")" 0
+  assert "$(./levenshtein -s "levenshtein" "levenshtein")" 0
+  assert "$(./levenshtein -s "sitting" "kitten")" 3
+  assert "$(./levenshtein -s "gumbo" "gambol")" 2
+  assert "$(./levenshtein -s "saturday" "sunday")" 3
+  assert "$(./levenshtein -s "DwAyNE" "DUANE")" 2
+  assert "$(./levenshtein -s "dwayne" "DuAnE")" 5
+  assert "$(./levenshtein -s "aarrgh" "aargh")" 1
+  assert "$(./levenshtein -s "aargh" "aarrgh")" 1
+  assert "$(./levenshtein -s "a" "b")" 1
+  assert "$(./levenshtein -s "ab" "ac")" 1
+  assert "$(./levenshtein -s "ac" "bc")" 1
+  assert "$(./levenshtein -s "abc" "axc")" 1
+  assert "$(./levenshtein -s "xabxcdxxefxgx" "1ab2cd34ef5g6")" 6
+  assert "$(./levenshtein -s "xabxcdxxefxgx" "abcdefg")" 6
+  assert "$(./levenshtein -s "javawasneat" "scalaisgreat")" 7
+  assert "$(./levenshtein -s "example" "samples")" 3
+  assert "$(./levenshtein -s "sturgeon" "urgently")" 6
+  assert "$(./levenshtein -s "levenshtein" "frankenstein")" 6
+  assert "$(./levenshtein -s "distance" "difference")" 5
 
 printf "\033[32m\n(✓) Passed %s assertions without errors\033[0m\n" "$tests"
 
