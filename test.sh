@@ -63,6 +63,10 @@ describe "Execute: should work"
   assert "$(./levenshtein -s "sturgeon" "urgently")" 6
   assert "$(./levenshtein -s "levenshtein" "frankenstein")" 6
   assert "$(./levenshtein -s "distance" "difference")" 5
+  assert "$(./levenshtein test/tst1.txt test/tst2.txt)" 375
+  assert "$(./levenshtein test/tst2.txt test/tst1.txt)" 375
+  assert "$(./levenshtein test/empty.txt test/tst1.txt)" 447
+  assert "$(./levenshtein test/tst1.txt test/empty.txt)" 447
 
 printf "\033[32m\n(✓) Passed %s assertions without errors\033[0m\n" "$tests"
 
