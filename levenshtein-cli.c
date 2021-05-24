@@ -40,7 +40,7 @@ main(int argc, char **argv) {
 
     if (!strcmp(a, "-h") || !strcmp(a, "--help")) {
       printf("%s", "\n");
-      printf("%s", "  Usage: levenshtein <words...>\n");
+      printf("%s", "  Usage: levenshtein <files...>\n");
       printf("%s", "\n");
       printf("%s", "  Levenshtein algorithm CLI\n");
       printf("%s", "\n");
@@ -48,46 +48,47 @@ main(int argc, char **argv) {
       printf("%s", "\n");
       printf("%s", "    -h, --help           output usage information\n");
       printf("%s", "    -v, --version        output version number\n");
-      printf("%s", "    -f, --file           give files as input\n");
+      printf("%s", "    -s, --string         give strings as input\n");
       printf("%s", "\n");
       printf("%s", "  Usage:\n");
       printf("%s", "\n");
       printf("%s", "  # output distance\n");
-      printf("%s", "  $ levenshtein sitting kitten\n");
-      printf("%s", "  # 3\n");
+      printf("%s", "  $ levenshtein file1.txt file2.txt\n");
+      printf("%s", "  # 312\n");
       printf("%s", "\n");
       return 0;
     }
   }
 
-  if (!strcmp(a, "-f") || !strcmp(a, "--file")) {
-    if (argc != 4) {
-      fprintf(stderr, "\033[31mExpecting two files as arguments\033[0m\n");
-      return 1;
-    }
-
-    char * file_1 = filecontents(b);
-    if(!file_1) {
-      fprintf(stderr, "\033[31mError reading %s\033[0m\n", b);
-      return 1;
-    }
-
-    char * file_2 = filecontents(c);
-    if(!file_2) {
-      fprintf(stderr, "\033[31mError reading %s\033[0m\n", c);
-      return 1;
-    }
-
-    printf("%zu\n", levenshtein(file_1, file_2));
-    return 0;
-  }
-
-  if (argc != 3) {
-    fprintf(stderr, "\033[31mLevenshtein expects two arguments\033[0m\n");
+  if (argc < 3) {
+    fprintf(stderr, "\033[31mLevenshtein expects at least two arguments\033[0m\n");
     return 1;
   }
 
-  printf("%zu\n", levenshtein(a, b));
+  // String compare
+  if (!strcmp(a, "-s") || !strcmp(a, "--string")) {
+    if (argc != 4) {
+      fprintf(stderr, "\033[31mExpecting two strings as arguments\033[0m\n");
+      return 1;
+    }
 
+    printf("%zu\n", levenshtein(b, c));
+    return 0;
+  }
+
+  // File compare
+  char * file_1 = filecontents(a);
+  if(!file_1) {
+    fprintf(stderr, "\033[31mError reading %s\033[0m\n", a);
+    return 1;
+  }
+
+  char * file_2 = filecontents(b);
+  if(!file_2) {
+    fprintf(stderr, "\033[31mError reading %s\033[0m\n", b);
+    return 1;
+  }
+
+  printf("%zu\n", levenshtein(file_1, file_2));
   return 0;
 }

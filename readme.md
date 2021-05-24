@@ -23,7 +23,7 @@ $ make install
 ## Usage
 
 ```text
-  Usage: levenshtein <words...>
+  Usage: levenshtein <files...>
 
   Levenshtein algorithm CLI
 
@@ -31,12 +31,12 @@ $ make install
 
     -h, --help           output usage information
     -v, --version        output version number
-    -f, --file           give files as input
+    -s, --string         give strings as input
 
   Usage:
 
   # output distance
-  $ levenshtein sitting kitten
+  $ levenshtein file1.txt file2.txt
   # 3
 ```
 
