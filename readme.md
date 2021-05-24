@@ -11,7 +11,7 @@ command. There’s also a C library: [levenshtein(3)][lib], and a
 With CLib:
 
 ```bash
-$ clib install wooorm/levenshtein
+$ clib install rosvik/levenshtein
 ```
 
 Or Git clone, and then:
@@ -44,9 +44,9 @@ $ make install
 
 [MIT][] © [Titus Wormer][author]
 
-[build-badge]: https://img.shields.io/travis/wooorm/levenshtein.svg
+[build-badge]: https://img.shields.io/travis/rosvik/levenshtein.svg
 
-[build]: https://travis-ci.org/wooorm/levenshtein
+[build]: https://travis-ci.org/rosvik/levenshtein
 
 [wiki]: https://en.wikipedia.org/wiki/Levenshtein_distance
 

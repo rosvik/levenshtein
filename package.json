@@ -1,6 +1,6 @@
 {
   "name": "levenshtein",
-  "version": "1.1.1",
+  "version": "0.1.1-rosvik",
   "description": "Levenshtein algorithm CLI",
   "license": "MIT",
   "keywords": [
@@ -12,7 +12,7 @@
     "bin",
     "cli"
   ],
-  "repo": "wooorm/levenshtein",
+  "repo": "rosvik/levenshtein",
   "dependencies": {
     "wooorm/levenshtein.c": "*"
   },
