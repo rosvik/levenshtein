@@ -3,21 +3,17 @@
 #include <stdlib.h>
 #include "levenshtein.h"
 
-char * 
+char *
 filecontents(char *fname) {
-
   char * buffer = 0;
   long length = 0L;
-
   FILE * f = fopen (fname, "rb");
-
   if (f) {
     fseek (f, 0, SEEK_END);
     length = ftell (f);
     fseek (f, 0, SEEK_SET);
     buffer = malloc (length);
-    if (buffer)
-    {
+    if (buffer) {
       fread (buffer, 1, length, f);
     }
     fclose (f);
@@ -71,7 +67,6 @@ main(int argc, char **argv) {
       fprintf(stderr, "\033[31mExpecting two strings as arguments\033[0m\n");
       return 1;
     }
-
     printf("%zu\n", levenshtein(b, c));
     return 0;
   }
@@ -82,7 +77,6 @@ main(int argc, char **argv) {
     fprintf(stderr, "\033[31mError reading %s\033[0m\n", a);
     return 1;
   }
-
   char * file_2 = filecontents(b);
   if(!file_2) {
     fprintf(stderr, "\033[31mError reading %s\033[0m\n", b);
